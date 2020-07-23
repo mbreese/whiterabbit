@@ -19,6 +19,8 @@ http://exac.hms.harvard.edu/).
 
 The primary output is located in [out/merged.txt](out/merged.txt).
 
+All code is located in a github repository: https://github.com/mbreese/whiterabbit
+
 
 ## Summary
 
