@@ -87,7 +87,7 @@ def merge_files(fnames, common_cols, output_cols):
                     break
 
         if not found:
-            error("Missing output column: '%s'" % common_col)
+            error("Missing output column: '%s'" % output_col)
 
 
     sys.stdout.write('\n')

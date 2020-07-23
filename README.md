@@ -102,6 +102,10 @@ Here is the breakdown of the 7569 variants, by their functional impact (VEP anno
 
 ## Methods
 
+### Workflow
+
+I typically will work where I split each task into a separate set of scripts or tools. Then I will merge the appropriate data together after the end. For an HPC cluster, I'll use my own pipeline language (cgpipe) to manage these jobs. For small analyses like this, I'll use a Makefile. All commands needed to build the final output (`out/merged.txt`) is detailed in the Makefile. Some of the inputs require a download and can't be included in this repository (ex: COSMIC tables).
+
 ### Variant type
 
 Each variant was assigned a type (deletion, insertion, single-base substitution, or multi-base substitution) based on a comparison to the reference. Any alt-allele that was larger than the reference was considered an insertion. Any alt-allele that was smaller than the reference was considered a deletion. Any alt-allele that was the same length as the reference allele and contained only one difference was a single-base substitution. Alt-alleles with multiple changes, but the same length as the reference allele were multi-base substitutions. This ignores the possibility of an indel/substitution combination.
@@ -116,7 +120,9 @@ Annotated data was then downloaded in VCF format. Individual annotations for eac
 
 ### Allele frequency statistics
 
-Depth and allele frequency statistics can be pulled directly from fields in the VCF file. Depth is encoded in the DP INFO field and allele counts (ref and alt-allele) are encoded in the RO and AO FORMAT fields, respectively. These values were extracted using the `ngsutilsj vcf-export` and `ngsutilsj vcf-tocount` commands. Summary percentage calculations were performed using a python script. Note: When there are multiple alt-alleles for a position, the ref_pct and the alt_pct values may not add up to 1.0.
+Depth and allele frequency statistics can be pulled directly from fields in the VCF file. Depth is encoded in the DP INFO field and allele counts (ref and alt-allele) are encoded in the RO and AO FORMAT fields, respectively. These values were extracted using the `ngsutilsj vcf-export` and `ngsutilsj vcf-tocount` commands. Summary percentage calculations were performed using a python script. Note: When there are multiple alt-alleles for a position, the ref_pct and the alt_pct values may not add up to 1.0. 
+
+Also, it's slightly unclear if the DP value is the real depth here. If the normal and vaf5 samples are related, DP will be inaccurate. The calculated total from `ngsutilsj vcf-tocount` is also included for completeness.
 
 ### Population frequency
 

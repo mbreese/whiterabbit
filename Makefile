@@ -16,7 +16,7 @@ clean:
 
 out/merged.txt: out/vartype.txt out/dp.single.txt out/normal.pct.txt out/vaf5.pct.txt out/VEP_function.sorted.txt out/exac_freq.txt bin/merge_tab.py
 	bin/merge_tab.py 'chrom,pos,ref,alt' \
-		'vartype,IMPACT,Consequence,DP,normal:alt_count,vaf5:alt_count,normal:alt_pct,vaf5:alt_pct,exac_freq,common_pop,SYMBOL,CLIN_SIG' \
+		'vartype,IMPACT,Consequence,DP,normal:total_count,vaf5:total_count,normal:ref_count,vaf5:ref_count,normal:alt_count,vaf5:alt_count,normal:ref_pct,vaf5:ref_pct,normal:alt_pct,vaf5:alt_pct,exac_freq,common_pop,SYMBOL,CLIN_SIG' \
 		out/vartype.txt out/dp.single.txt normal:out/normal.pct.txt vaf5:out/vaf5.pct.txt out/VEP_function.sorted.txt out/exac_freq.txt \
 		> out/merged.txt
 
