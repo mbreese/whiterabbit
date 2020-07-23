@@ -1,4 +1,4 @@
-# VCF annotation example
+# VCF annotation challenge
 
 ## Instructions
 
@@ -104,7 +104,7 @@ Here is the breakdown of the 7569 variants, by their functional impact (VEP anno
 
 ### Workflow
 
-I typically will work where I split each task into a separate set of scripts or tools. Then I will merge the appropriate data together after the end. For an HPC cluster, I'll use my own pipeline language (cgpipe) to manage these jobs. For small analyses like this, I'll use a Makefile. All commands needed to build the final output (`out/merged.txt`) is detailed in the Makefile. Some of the inputs require a download and can't be included in this repository (ex: COSMIC tables).
+I typically will work where I split each task into a separate set of scripts or tools. Then I will merge the appropriate data together after the end. For an HPC cluster, I'll use my own pipeline language [cgpipe](https://compgen.io/cgpipe) to manage these jobs. For small analyses like this, I'll use a Makefile. All commands needed to build the final output (`out/merged.txt`) is detailed in the Makefile. Some of the inputs require a download and can't be included in this repository (ex: COSMIC tables).
 
 ### Variant type
 
