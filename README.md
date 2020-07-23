@@ -15,6 +15,10 @@ possibility.
 http://exac.hms.harvard.edu/).
 6. Any additional annotations that you feel might be relevant.
 
+## Output
+
+The primary output is located in [out/merged.txt](out/merged.txt).
+
 
 ## Summary
 
@@ -28,6 +32,42 @@ The VCF file contains 7569 variants covering 6977 positions across the genome.
     776  insertions
     150  multi-base substitutions
     5470 single-base substitutions
+
+
+### Variant consequence
+
+    $ tabl export Consequence out/merged.txt | sort | uniq -c | sort -n
+       1 coding_sequence_variant
+       1 inframe_insertion
+       1 intron_variant&NMD_transcript_variant
+       1 splice_region_variant&5_prime_UTR_variant
+       1 start_lost
+       2 3_prime_UTR_variant&NMD_transcript_variant
+       2 frameshift_variant&splice_region_variant
+       2 missense_variant&NMD_transcript_variant
+       2 splice_donor_variant&coding_sequence_variant
+       2 splice_region_variant&3_prime_UTR_variant&NMD_transcript_variant
+       4 frameshift_variant
+       4 splice_donor_variant
+       5 splice_acceptor_variant&intron_variant
+       9 splice_region_variant&non_coding_transcript_exon_variant
+      10 splice_acceptor_variant
+      15 non_coding_transcript_exon_variant
+      18 missense_variant&splice_region_variant
+      22 regulatory_region_variant
+      27 stop_gained
+      30 splice_region_variant&synonymous_variant
+      58 intron_variant&non_coding_transcript_variant
+      61 intergenic_variant
+     140 3_prime_UTR_variant
+     144 5_prime_UTR_variant
+     254 splice_region_variant&intron_variant
+     258 downstream_gene_variant
+     261 upstream_gene_variant
+    1158 missense_variant
+    1383 synonymous_variant
+    1793 intron_variant
+  *(slightly reformatted)*
 
 
 ### Allele frequencies
